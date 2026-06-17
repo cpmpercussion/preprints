@@ -15,11 +15,9 @@
 # in the templates via {{ site.myvariable }}.
 title: "Dr Charles Patrick Martin: Preprint Archive"
 email: cpm@charlesmartin.au
-description: >- # this means to ignore newlines until "baseurl:"
-  Charles Martin is a researcher specialising in music 
-  technology and machine learning at the Australian National University
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://metatonetransfer.com" # the base hostname & protocol for your site, e.g. http://example.com
+description: "Open-access preprints, papers, and research outputs in music technology and musical AI."
+baseurl: "" # set to /preprints at build time by the deploy workflow
+url: "https://charlesmartin.au"
 twitter_username: cpmpercussion
 github_username:  cpmpercussion
 

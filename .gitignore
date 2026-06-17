@@ -1,23 +1,17 @@
+# macOS
+.DS_Store
 
-auto/newpubs.el
-
-auto/publications.el
-
-auto/pubs-cited.el
-
-publications.html
-
-publications_by_type2.html
-
-publications_by_type.html
-docs/_site
-docs/.sass-cache
-docs/.jekyll-metadata
-decra_publications.html
+# Jekyll build output
 _site
+docs/_site
 .sass-cache
+docs/.sass-cache
 .jekyll-metadata
-docs/publications/*.bib
-docs/_bibliography/*.bib
-*.mp4
+docs/.jekyll-metadata
+docs/.jekyll-cache
 
+# Bibliography staged from the canonical publications.bib at build time
+docs/_bibliography/*.bib
+
+# Large media
+*.mp4
