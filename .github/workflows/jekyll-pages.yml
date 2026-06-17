@@ -1,0 +1,56 @@
+name: Build and deploy preprint archive
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; don't cancel an in-progress run.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: docs
+
+      # jekyll-scholar is not a GitHub-Pages-whitelisted plugin, so we build
+      # the site ourselves rather than letting Pages run Jekyll.
+      - name: Build site
+        working-directory: docs
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --baseurl "/preprints"
+
+      # PDFs live in docs/preprints/ for tidiness but must resolve at the site
+      # root (charlesmartin.au/preprints/<file>.pdf), matching the URLs in the
+      # bibliography. Flatten them into the built site.
+      - name: Flatten preprints into site root
+        run: cp docs/preprints/*.pdf docs/_site/
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
