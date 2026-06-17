@@ -35,7 +35,7 @@ bundle exec jekyll serve
 
 ## Deployment
 
-Pushing to `master` triggers `.github/workflows/jekyll-pages.yml`, which builds
+Pushing to `main` triggers `.github/workflows/jekyll-pages.yml`, which builds
 the site with `--baseurl /preprints`, flattens `docs/preprints/*.pdf` into the
 site root (so they resolve at `charlesmartin.au/preprints/<file>.pdf`), and
 deploys to GitHub Pages.
