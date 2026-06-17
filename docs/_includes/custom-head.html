@@ -1,0 +1,52 @@
+<style>
+  /* Bibliography listing: clean, unnumbered. */
+  ol.bibliography { list-style: none; padding-left: 0; }
+  ol.bibliography > li { margin-bottom: 1.1em; }
+
+  /* Inline action links after each reference (toggles + external links). */
+  .bib-actions { margin-left: .3em; }
+  .bib-actions a {
+    display: inline-block;
+    font-size: .72em;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-right: .5em;
+    cursor: pointer;
+    opacity: .75;
+    white-space: nowrap;
+  }
+  .bib-actions a:hover { opacity: 1; }
+  .bib-toggle.open { font-weight: 700; opacity: 1; }
+  .bib-preprint { font-weight: 700; opacity: 1; }
+
+  /* Expandable details, hidden until toggled. */
+  .bib-detail { margin: .5em 0 .25em 1.2em; }
+  .bib-detail[hidden] { display: none; }
+  .bib-abstract { font-size: .95em; }
+  pre.bib-bibtex {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: .78em;
+    padding: .6em .8em;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+</style>
+
+<script>
+  // Slim, delegated toggler for abstract / bibtex panels.
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('.bib-toggle');
+    if (!link) return;
+    e.preventDefault();
+    var panel = document.getElementById(link.getAttribute('data-target'));
+    if (!panel) return;
+    if (panel.hasAttribute('hidden')) {
+      panel.removeAttribute('hidden');
+      link.classList.add('open');
+    } else {
+      panel.setAttribute('hidden', '');
+      link.classList.remove('open');
+    }
+  });
+</script>

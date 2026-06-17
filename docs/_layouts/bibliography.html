@@ -1,24 +1,17 @@
 ---
 ---
-{{reference}}
-
-<div id="{{key}}-materials">
-  <ul class="nav nav-pills">
-    {% if entry.abstract %}
-    <li><a data-toggle="collapse" href="#{{key}}-abstract">Abstract</a></li>
-    {% endif %}
-
-    <li><a data-toggle="collapse" href="#{{key}}-bibtex">BibTeX</a></li>
-
-    {% if link %}
-    <li><a href="{{link}}">Download</a></li>
-    {% endif %}
-  </ul>
-
-  {% if entry.abstract %}
-  <p id="{{key}}-abstract" class="collapse">{{entry.abstract}}</p>
-  {% endif %}
-
-  <pre id="{{key}}-bibtex" class="pre pre-scrollable collapse">{{entry.bibtex}}</pre>
-
-</div>
+{{ reference }}
+<span class="bib-actions">
+  {% if entry.abstract %}<a class="bib-toggle" href="#" data-target="{{ key }}-abstract">abstract</a>{% endif %}
+  {% if entry.doi %}<a class="bib-link" href="https://dx.doi.org/{{ entry.doi }}">doi</a>{% endif %}
+  {% if entry.url %}<a class="bib-link" href="{{ entry.url }}">url</a>{% endif %}
+  {% if entry.eprint %}<a class="bib-link" href="https://arxiv.org/abs/{{ entry.eprint }}">arXiv</a>{% endif %}
+  {% if entry.preprint %}<a class="bib-link bib-preprint" href="{{ entry.preprint }}">preprint PDF</a>{% endif %}
+  {% if entry.pdf %}<a class="bib-link" href="{{ entry.pdf }}">PDF</a>{% endif %}
+  {% if entry.video %}<a class="bib-link" href="{{ entry.video }}">video</a>{% endif %}
+  <a class="bib-toggle" href="#" data-target="{{ key }}-bibtex">bibtex</a>
+</span>
+{% if entry.abstract %}
+<div id="{{ key }}-abstract" class="bib-detail bib-abstract" hidden>{{ entry.abstract }}</div>
+{% endif %}
+<pre id="{{ key }}-bibtex" class="bib-detail bib-bibtex" hidden>{{ entry.bibtex }}</pre>

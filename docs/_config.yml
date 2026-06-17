@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Dr Charles Patrick Martin
+title: "Dr Charles Patrick Martin: Preprint Archive"
 email: cpm@charlesmartin.au
 description: >- # this means to ignore newlines until "baseurl:"
   Charles Martin is a researcher specialising in music 
@@ -25,12 +25,14 @@ github_username:  cpmpercussion
 
 scholar:
   style: apa
+  source: _bibliography
+  bibliography: publications.bib
   repository: preprints
   bibliography_template: bibliography
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: monophase
 plugins:
   - jekyll-feed
   - jekyll-scholar
