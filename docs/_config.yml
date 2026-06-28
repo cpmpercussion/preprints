@@ -23,7 +23,7 @@ github_username:  cpmpercussion
 
 scholar:
   style: apa
-  source: _bibliography
+  source: ..
   bibliography: publications.bib
   repository: preprints
   bibliography_template: bibliography
