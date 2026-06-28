@@ -23,10 +23,15 @@ github_username:  cpmpercussion
 
 scholar:
   style: apa
-  source: ..
+  source: _bibliography
   bibliography: publications.bib
   repository: preprints
   bibliography_template: bibliography
+  group_by: year
+  group_order: descending
+  bibliography_list_tag: "ul"
+  bibliography_item_tag: "li"
+
 
 # Build settings
 markdown: kramdown
