@@ -40,14 +40,12 @@ plugins:
   - jekyll-feed
   - jekyll-scholar
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Exclude from processing. The canonical publications.bib lives at the repo root
+# (the site source) but is staged into _bibliography/ by _plugins; we don't want
+# the raw copy emitted into the built site.
+exclude:
+  - publications.bib
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/

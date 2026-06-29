@@ -1,6 +1,5 @@
-# Stages the single canonical bibliography (../publications.bib at the repo
-# root — the file Charles edits) into docs/_bibliography/ so jekyll-scholar can
-# read it.
+# Stages the single canonical bibliography (publications.bib at the repo root —
+# the file Charles edits) into _bibliography/ so jekyll-scholar can read it.
 #
 # The publications page renders its sections by querying this one file with
 #   {% bibliography --query @*[keywords ~= ...] %}
@@ -10,8 +9,7 @@
 require "fileutils"
 
 Jekyll::Hooks.register :site, :after_init do |site|
-  root = File.expand_path("..", site.source)
-  source = File.join(root, "publications.bib")
+  source = File.join(site.source, "publications.bib")
 
   unless File.exist?(source)
     Jekyll.logger.warn "bibstage:", "canonical bib not found at #{source}"

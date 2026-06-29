@@ -3,15 +3,12 @@
 
 # Jekyll build output
 _site
-docs/_site
 .sass-cache
-docs/.sass-cache
 .jekyll-metadata
-docs/.jekyll-metadata
-docs/.jekyll-cache
+.jekyll-cache
 
 # Bibliography staged from the canonical publications.bib at build time
-docs/_bibliography/*.bib
+_bibliography/*.bib
 
 # Large media
 *.mp4
